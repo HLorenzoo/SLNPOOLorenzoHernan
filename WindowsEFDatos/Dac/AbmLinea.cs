@@ -20,6 +20,15 @@ namespace WindowsEFDatos.Dac
 
             return context.SaveChanges();
         }
-
+        public static int Eliminar(int id)
+        {
+            LineaAerea lineaAerea = context.LineaAereas.Find(id);
+            if (lineaAerea != null)
+            {
+                context.LineaAereas.Remove(lineaAerea);
+                return context.SaveChanges();
+            }
+            return 0;
+        }
     }
 }
